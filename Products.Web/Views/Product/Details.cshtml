@@ -1,0 +1,62 @@
+﻿@model Products.Web.Responses.ProductResponse;
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditProduct", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<p>Comments</p>
+<button class="btn btn-success" onclick="addComment">
+    Add Comment
+</button>
+<div id="commentbox">
+    <input type="text" class="form-control" placeholder="comments..." />
+    <button class="btn btn-success">Comment</button>
+</div>
+<ul>
+    <li>Comment 1</li>
+    <li>Comment 2</li>
+    <li>Comment 3</li>
+    <li>Comment 4</li>
+</ul>
+<script>
+    function addComment(){
+        alert('lalala')
+    }
+</script>
