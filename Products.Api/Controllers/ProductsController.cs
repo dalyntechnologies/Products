@@ -60,6 +60,22 @@ namespace Products.Api.Controllers
             return BadRequest();
         }
 
+        [HttpPost("uploads")]
+        public IActionResult UploadProduct([FromBody] ProductUploadViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                if (model == null)
+                    return BadRequest($"{nameof(model)} cannot be null");
+
+                var productList = model.Products;
+                 _unitOfWork.Product.AddEntity(productList);
+                _unitOfWork.SaveChanges();
+                return Ok();
+            }
+            return BadRequest();
+        }
+
 
         [HttpPut("product/{id:int}")]
         public async Task<IActionResult> UpdateProduct([FromBody] ProductViewModel model, int id)

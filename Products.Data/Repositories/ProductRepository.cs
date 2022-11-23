@@ -78,6 +78,11 @@ namespace Products.Data.Repositories
         {
             return await AppContext.Product.CountAsync();
         }
+
+        public void AddEntity(List<Product> entity)
+        {
+           AppContext.Product.AddRangeAsync(entity);
+        }
     }
     
     

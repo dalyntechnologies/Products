@@ -11,6 +11,7 @@ namespace Products.Data.Repositories.Interfaces
     {
         void AddEntity(Product entity);
         void UpdateEntity(Product entity);
+        void AddEntity(List<Product> entity);
         void DeleteEntity(Product entity);
         Task<IEnumerable<Product>> GetEntities();
         Task<int> GetTotalProducts();
